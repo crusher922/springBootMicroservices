@@ -1,0 +1,76 @@
+version: '3'
+services:
+  ### service for MySQL db (orders)
+  db-orders:
+    container_name: db-orders
+    image: mysql:8.0.33
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ms_orders
+      MYSQL_USER: crusher
+      MYSQL_PASSWORD: Test123
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+
+  db-inventory:
+    container_name: db-inventory
+    image: mysql:8.0.33
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ms_inventory
+      MYSQL_USER: crusher
+      MYSQL_PASSWORD: Test123
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3308:3306
+    expose:
+      - 3306
+  db-products:
+    container_name: db-products
+    image: mysql:8.0.33
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ms_products
+      MYSQL_USER: crusher
+      MYSQL_PASSWORD: Test123
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3309:3306
+    expose:
+      - 3306
+
+
+#  ### service for postgres db (products)
+#  db-products:
+#    container_name: db-products
+#    image: postgres:15.2
+#    restart: unless-stopped
+#    environment:
+#      POSTGRES_DB: ms_products
+#      POSTGRES_USER: crusher
+#      POSTGRES_PASSWORD: Test123
+#    ports:
+#      - 5432:5432
+#    expose:
+#      - 5432
+#    command: -p 5432
+#
+  ### service for Postgres db (inventory)
+#  db-inventory:
+#    container_name: db-inventory
+#    image: postgres:15.2
+#    restart: unless-stopped
+#    environment:
+#      POSTGRES_DB: ms_inventory
+#      POSTGRES_USER: crusher
+#      POSTGRES_PASSWORD: Test123
+#    ports:
+#      - 5431:5432
+#    expose:
+#      - 5432
+#    command: -p 5431
+
+
